@@ -31,25 +31,27 @@ pub_q   = rospy.Publisher("/angle",     Float64MultiArray, queue_size=10)
 pub_dq  = rospy.Publisher("/angle_vel", Float64MultiArray, queue_size=10)
 pub_tau = rospy.Publisher("/torque",    Float64MultiArray, queue_size=10)
 pub_angAcc = rospy.Publisher("/angle_acc",    Float64MultiArray, queue_size=10)
-pub_eepose= rospy.Publisher("/eepose", Float64MultiArray, queue_size=10)
+pub_eepose= rospy.Publisher("/ee_pose", Float64MultiArray, queue_size=10)
 pub_man = rospy.Publisher("/manipulability", Float64MultiArray, queue_size=10)
+pub_eeVelo = rospy.Publisher("/ee_velocity", Float64MultiArray, queue_size=10)
 
 # All scaled data publishers
 pub_q_scaled   = rospy.Publisher("/angle_scaled",     Float64MultiArray, queue_size=10)
 pub_dq_scaled  = rospy.Publisher("/angle_vel_scaled", Float64MultiArray, queue_size=10)
 pub_tau_scaled = rospy.Publisher("/torque_scaled",    Float64MultiArray, queue_size=10)
 pub_angAcc_scaled = rospy.Publisher("/angle_acc_scaled",    Float64MultiArray, queue_size=10)
-pub_eepose_scaled = rospy.Publisher("/eepose_scaled", Float64MultiArray, queue_size=10)
+pub_eepose_scaled = rospy.Publisher("/ee_pose_scaled", Float64MultiArray, queue_size=10)
 pub_man_scaled = rospy.Publisher("/manipulability_scaled", Float64MultiArray, queue_size=10)
+pub_eeVelo_scaled = rospy.Publisher("/ee_velocity_scaled", Float64MultiArray, queue_size=10)
 
 
 def publishInfo(currState):
 
     #get cartesian coord of the end effector
-    eePose = computeCartesianCoord(currState)
+    eePose = getEndEffPose(currState)
     
     #Yoshikawa's manipulability to detect singularities
-    w = computeManipulability(currState)
+    w, eeVelo = computeManipulabilityandVelocity(currState)
 
     pub_q.publish(Float64MultiArray(data=list(currState.q)))
     pub_dq.publish(Float64MultiArray(data=list(currState.dq)))
@@ -57,6 +59,7 @@ def publishInfo(currState):
     pub_angAcc.publish(Float64MultiArray(data=list(currState.ddq_d)))
     pub_eepose.publish(Float64MultiArray(data=eePose))
     pub_man.publish(Float64MultiArray(data = [w]))
+    pub_eeVelo.publish(Float64MultiArray(data = eeVelo))
 
 
 
@@ -67,15 +70,17 @@ def calcTrq():
     return torques
 
 
-def computeManipulability(currState):
+def computeManipulabilityandVelocity(currState):
 
     J_body = panda_rtb.jacobe(currState.q) #compute body jacobian
-    w = np.sqrt(np.linalg.det(J_body @ J_body.T))
+    w = np.sqrt(np.linalg.det(J_body @ J_body.T)) # compute manipulability using Jacobian
 
-    return w
+    eeVelo = np.dot(J_body, currState.dq) # compute end eff velocity using Jacobian (6x1 : linear velo x, y, z and angular velo x, y and z)
+
+    return w, eeVelo
 
 
-def computeCartesianCoord(currState):
+def getEndEffPose(currState):
 
     eePosition = robot.get_position()
     eeOrientation = robot.get_orientation()
