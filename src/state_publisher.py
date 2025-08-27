@@ -13,17 +13,17 @@ panda_rtb = rtb.models.Panda()
 
 # initialize robot, set torque controller and configure settings for collision behaviour
 robot = panda_py.Panda("172.22.2.3")
-trqController = panda_py.controllers.AppliedTorque()
-robot.start_controller(trqController)
-robotSettings = robot.get_robot()
-robotSettings.set_collision_behavior(lower_torque_thresholds_acceleration = [x / 15 for x in [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0]],
-                            upper_torque_thresholds_acceleration = [x * 15 for x in [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0]],
-                            lower_torque_thresholds_nominal = [x / 15 for x in [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0]],
-                            upper_torque_thresholds_nominal = [x * 15 for x in [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0]],
-                            lower_force_thresholds_acceleration = [x / 15 for x in [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]],
-                            upper_force_thresholds_acceleration = [x * 15 for x in [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]],
-                            lower_force_thresholds_nominal = [x / 15 for x in [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]],
-                            upper_force_thresholds_nominal = [x * 15 for x in [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]])
+# trqController = panda_py.controllers.AppliedTorque()
+# robot.start_controller(trqController)
+# robotSettings = robot.get_robot()
+# robotSettings.set_collision_behavior(lower_torque_thresholds_acceleration = [x / 15 for x in [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0]],
+#                             upper_torque_thresholds_acceleration = [x * 15 for x in [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0]],
+#                             lower_torque_thresholds_nominal = [x / 15 for x in [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0]],
+#                             upper_torque_thresholds_nominal = [x * 15 for x in [20.0, 20.0, 18.0, 18.0, 16.0, 14.0, 12.0]],
+#                             lower_force_thresholds_acceleration = [x / 15 for x in [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]],
+#                             upper_force_thresholds_acceleration = [x * 15 for x in [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]],
+#                             lower_force_thresholds_nominal = [x / 15 for x in [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]],
+#                             upper_force_thresholds_nominal = [x * 15 for x in [20.0, 20.0, 20.0, 25.0, 25.0, 25.0]])
 
 
 # All raw data publishers
@@ -65,10 +65,10 @@ def publishInfo(currState):
 
 
 
-def calcTrq():
+# def calcTrq():
 
-    torques = np.array([0, 0, 0, 0, 0, 0, 0])
-    return torques
+#     torques = np.array([0, 0, 0, 0, 0, 0, 0])
+#     return torques
 
 
 def computeManipulabilityandVelocity(currState):
@@ -101,8 +101,8 @@ if __name__ == "__main__":
         currState = robot.get_state()
         publishInfo(currState)
 
-        #send torques to control the robot
-        torques = calcTrq()
-        trqController.set_control(torques)
+        # #send torques to control the robot
+        # torques = calcTrq()
+        # trqController.set_control(torques)
 
         rate.sleep()

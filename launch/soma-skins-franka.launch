@@ -1,0 +1,13 @@
+<launch>
+
+    <node name="state_publisher" pkg="soma-skins-franka" type="state_publisher.py" output="screen"/>
+
+    <!-- <node name="teleop_twist_keyboard" pkg="soma-skins-franka" type="teleop_twist_keyboard.py" output="screen">
+        <param name="speed" value="0.05"/>
+        <param name="turn" value="0.2"/>
+    </node> -->
+
+    <node name="keyboard_control" pkg="soma-skins-franka" type="keyboard_control.py" output="screen"/>
+    
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" /> 
+</launch>
