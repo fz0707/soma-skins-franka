@@ -5,7 +5,6 @@ Create your catkin workspace and pull soma-skins-franka repo as a new package in
 1. Running Kinesthetic control:
 
     --> In a terminal run : roslaunch rosbridge_server rosbridge_websocket.launch
-    --> In another terminal run : rosrun soma-skins-franka state_publisher.py
     --> In another terminal run : rosrun soma-skins-franka kinesthetic_control.py
 
 
@@ -17,7 +16,6 @@ Create your catkin workspace and pull soma-skins-franka repo as a new package in
 
     Running:
         --> In a terminal run : roslaunch rosbridge_server rosbridge_websocket.launch
-        --> In another terminal run : rosrun soma-skins-franka state_publisher.py
         --> In another terminal run : rosrun soma-skins-franka keyboard_control.py
         --> In another terminal run : rosrun teleop_twist_keyboard teleop_twist_keyboard.py _speed:=0.05 _turn:=0.8
 
