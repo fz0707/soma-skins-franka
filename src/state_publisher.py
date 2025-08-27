@@ -45,6 +45,7 @@ pub_man_scaled = rospy.Publisher("/manipulability_scaled", Float64MultiArray, qu
 pub_eeVelo_scaled = rospy.Publisher("/ee_velocity_scaled", Float64MultiArray, queue_size=10)
 
 
+
 def publishInfo(currState):
 
     #get cartesian coord of the end effector

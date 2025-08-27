@@ -1,7 +1,3 @@
 1. In a terminal run:
-roslaunch rosbridge_server rosbridge_websocket.launch
-
-2. Finally run:
-rosrun soma-skins-franka state_publisher.py
-
+roslaunch soma-skins-franka state_publisher.launch
 

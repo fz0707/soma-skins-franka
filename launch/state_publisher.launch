@@ -1,0 +1,4 @@
+<launch>
+    <node name="state_publisher" pkg="soma-skins-franka" type="state_publisher.py" output="screen"/>
+    <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" /> 
+</launch>
