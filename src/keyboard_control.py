@@ -2,6 +2,7 @@
 
 import rospy
 from geometry_msgs.msg import Twist
+from std_msgs.msg import String, Float64MultiArray
 import roboticstoolbox as rtb
 import numpy as np
 import panda_py
@@ -80,7 +81,6 @@ def send_command(msg):
     dq = compute_joint_velo(currState, twist)
 
     veloController.set_control(dq)
-    print(f'velocity set to {dq}')
 
 
 def compute_joint_velo(currState, twist, damping = 0.01):
