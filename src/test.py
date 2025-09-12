@@ -1,7 +1,7 @@
 import panda_py
 
 
-robot = panda_py.Panda("172.22.2.3")
+robot = panda_py.Panda("172.22.2.4")
 
 
 while True:

@@ -4,7 +4,7 @@ from frankx import Affine, Robot, JointMotion, PathMotion, WaypointMotion, Waypo
 
 def program():
   parser = ArgumentParser()
-  parser.add_argument('--host', default='172.22.2.3', help='FCI IP of the robot')
+  parser.add_argument('--host', default='172.22.2.4', help='FCI IP of the robot')
   args = parser.parse_args()
   robot = Robot(args.host)
   robot.set_default_behavior()
