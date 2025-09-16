@@ -1,0 +1,174 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6a017/fast && /usr/bin/make -f CMakeFiles/cmTC_6a017.dir/build.make CMakeFiles/cmTC_6a017.dir/build
+make[1]: Entering directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6a017.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_6a017.dir/src.c.o   -c /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_6a017
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6a017.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_6a017.dir/src.c.o  -o cmTC_6a017 
+/usr/bin/ld: CMakeFiles/cmTC_6a017.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_6a017.dir/build.make:87: cmTC_6a017] Error 1
+make[1]: Leaving directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_6a017/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b856c/fast && /usr/bin/make -f CMakeFiles/cmTC_b856c.dir/build.make CMakeFiles/cmTC_b856c.dir/build
+make[1]: Entering directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b856c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_b856c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b856c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b856c.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_b856c.dir/CheckFunctionExists.c.o  -o cmTC_b856c  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_b856c.dir/build.make:87: cmTC_b856c] Error 1
+make[1]: Leaving directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_b856c/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8dbfa/fast && /usr/bin/make -f CMakeFiles/cmTC_8dbfa.dir/build.make CMakeFiles/cmTC_8dbfa.dir/build
+make[1]: Entering directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8dbfa.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_8dbfa.dir/src.c.o   -c /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_8dbfa
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8dbfa.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_8dbfa.dir/src.c.o  -o cmTC_8dbfa 
+/usr/bin/ld: CMakeFiles/cmTC_8dbfa.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_8dbfa.dir/build.make:87: cmTC_8dbfa] Error 1
+make[1]: Leaving directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_8dbfa/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2344c/fast && /usr/bin/make -f CMakeFiles/cmTC_2344c.dir/build.make CMakeFiles/cmTC_2344c.dir/build
+make[1]: Entering directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2344c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_2344c.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_2344c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2344c.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_2344c.dir/CheckFunctionExists.c.o  -o cmTC_2344c  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_2344c.dir/build.make:87: cmTC_2344c] Error 1
+make[1]: Leaving directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_2344c/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cb364/fast && /usr/bin/make -f CMakeFiles/cmTC_cb364.dir/build.make CMakeFiles/cmTC_cb364.dir/build
+make[1]: Entering directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cb364.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_cb364.dir/src.c.o   -c /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_cb364
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cb364.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_cb364.dir/src.c.o  -o cmTC_cb364 
+/usr/bin/ld: CMakeFiles/cmTC_cb364.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_cb364.dir/build.make:87: cmTC_cb364] Error 1
+make[1]: Leaving directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_cb364/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_03bc4/fast && /usr/bin/make -f CMakeFiles/cmTC_03bc4.dir/build.make CMakeFiles/cmTC_03bc4.dir/build
+make[1]: Entering directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_03bc4.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_03bc4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_03bc4
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_03bc4.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_03bc4.dir/CheckFunctionExists.c.o  -o cmTC_03bc4  -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+make[1]: *** [CMakeFiles/cmTC_03bc4.dir/build.make:87: cmTC_03bc4] Error 1
+make[1]: Leaving directory '/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_03bc4/fast] Error 2
+
+
+

@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: soma-skins-franka
+Description: Description of soma-skins-franka
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/devel/setup.sh

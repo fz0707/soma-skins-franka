@@ -1,0 +1,8 @@
+prefix=/home/johnkiran/SomaSkinsWS/catkin_ws/src/soma-skins-franka/build/devel
+
+Name: soma-skins-franka
+Description: Description of soma-skins-franka
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
